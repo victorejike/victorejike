@@ -1,16 +1,30 @@
-## Hi there 👋
+# 👋 Hi, I'm Victor Ejike
 
-<!--
-**victorejike/victorejike** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I’m a passionate **Software Developer and Software Engineer** who loves building scalable, efficient, and impactful solutions through clean and maintainable code. My focus is on writing reliable backend systems and elegant frontend interfaces that bring ideas to life.
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🧠 About Me
+- 💻 Skilled in **Java**, **Python**, **C++**, **HTML**, **CSS**, **JavaScript**, and **React.js**  
+- 🚀 Currently improving my **backend development** and **software engineering** skills  
+- 🎯 Goal: To become a world-class **Software Engineer** and build meaningful products  
+- 🌱 I enjoy solving problems, learning new technologies, and collaborating on innovative projects  
+
+---
+
+## ⚙️ Tech Stack
+**Languages:** Java, Python, C++, JavaScript, HTML, CSS  
+**Frameworks & Libraries:** React.js  
+**Tools & Platforms:** Git, GitHub, VS Code  
+
+---
+
+## 💬 Let’s Connect
+- 📧 Email: [victorejiki@gmail.com]  
+- 🌍 Portfolio: [your-portfolio-link-if-any]  
+- 💼 LinkedIn: [vi]
+
+---
+
+> *“Code is like humor. When you have to explain it, it’s bad.”*  
+> — Cory House
