@@ -1,37 +1,44 @@
 # Hi 👋, I'm **Victor Ejike**
 ### A passionate Software Engineer and Cybersecurity Enthusiast 🔐💻  
-*(GitHub: [@ejikevictor-dev](https://github.com/ejikevictor-dev))*
+*(GitHub: [@ejikevictor-dev](https://github.com/victorejike))*
 
 ---
 
-### 🚀 About Me
+## 🚀 About Me
 
-🔭 I’m currently working on:  
-**Firewall Development and System Security Projects**
+I’m a **Software Engineer** with a strong foundation in **network security**, **system design**, and **cloud computing**.  
+I’m passionate about building **secure, scalable, and high-performance applications** that merge **cybersecurity principles** with **modern software development**.
 
-👯 I’m looking to collaborate on:  
-**[QuadChecker](https://github.com/victorejike/quadchecker)** — a Go-based logic project.
+- 🔭 **Currently working on:**  
+  - **Firewall Development & System Security Projects** — improving defensive network systems.
+  - **ChatApp** — a real-time messaging application built with Go and WebSockets for instant, secure communication.  
+    🔗 *Repo:* [ChatApp](https://github.com/victorejike/chatapp) *(or your real link when ready)*
+  - **Payment Gateway API** — a lightweight, secure payment integration service with token-based authentication and transaction tracking.  
+    🔗 *Repo:* [Payment Gateway](https://github.com/victorejike/payment-gateway)
 
-🌱 I’m currently learning:  
-**Go (Golang)** | **JavaScript** | **Cloud DevOps** | **System Design**
+- 👯 **I’m looking to collaborate on:**  
+  [QuadChecker](https://github.com/victorejike/quadchecker) — a Go-based pattern recognition project.
 
-💬 Ask me about:  
-**Go (Golang)**, **JavaScript**, **System Engineering**, or **Network Security**
+- 🌱 **Currently learning:**  
+  **Go (Golang)** | **JavaScript** | **Cloud DevOps** | **System Design**
 
-📫 How to reach me:  
-📧 **victorejiki@gmail.com**
+- 💬 **Ask me about:**  
+  **Go (Golang)**, **JavaScript**, **System Engineering**, **Cybersecurity**, or **Automation**
 
-⚡ Fun fact:  
-> I love turning complex security problems into elegant, scalable software solutions.
+- 📫 **How to reach me:**  
+  📧 **victorejiki@gmail.com**
+
+- ⚡ **Fun fact:**  
+  > I love turning complex security problems into elegant, scalable software solutions.
 
 ---
 
-### 📝 Blog Posts
-_(Coming soon on Dev.to / Medium @ejikevictor)_
+## 📝 Blog Posts
+📚 *Coming soon on [Dev.to](https://dev.to/victorejike) / [Medium](https://medium.com/@ejikevictor)*
 
 ---
 
-### 🌐 Connect With Me
+## 🌐 Connect With Me
 
 <p align="left">
 <a href="https://github.com/ejikevictor-dev" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/></a>
@@ -44,7 +51,7 @@ _(Coming soon on Dev.to / Medium @ejikevictor)_
 
 ---
 
-### 💻 Languages and Tools
+## 💻 Languages and Tools
 
 <p align="left">
 <img src="https://skillicons.dev/icons?i=go,python,js,react,nodejs,html,css,linux,git,github,docker,aws,azure,postgresql,mysql,bash,vscode,figma" />
@@ -52,7 +59,7 @@ _(Coming soon on Dev.to / Medium @ejikevictor)_
 
 ---
 
-### 📊 GitHub Stats
+## 📊 GitHub Stats
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=victorejike&show_icons=true&theme=tokyonight" alt="GitHub stats" />
@@ -64,14 +71,15 @@ _(Coming soon on Dev.to / Medium @ejikevictor)_
 
 ---
 
-### 🏆 GitHub Trophies
+## 🏆 GitHub Trophies
+
 <p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=victorejike&theme=onestar&margin-w=10" alt="trophies"/>
 </p>
 
 ---
 
-### 📈 Visitors Count
+## 📈 Visitors Count
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=victorejike&style=for-the-badge&color=blue" alt="Profile Views"/>
 </p>
