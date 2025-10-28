@@ -1,6 +1,10 @@
 # Hi 👋, I'm **Victor Ejike**
 ### A passionate Software Engineer and Cybersecurity Enthusiast 🔐💻  
-*(GitHub: [@ejikevictor-dev](https://github.com/victorejike))*
+*(GitHub: [@ejikevictor-dev](https://github.com/ejikevictor-dev))*
+
+---
+
+## 🌍 [🚀 Visit My Portfolio Website →](https://victorejike.github.io/vejike-dev/)
 
 ---
 
@@ -10,9 +14,9 @@ I’m a **Software Engineer** with a strong foundation in **network security**, 
 I’m passionate about building **secure, scalable, and high-performance applications** that merge **cybersecurity principles** with **modern software development**.
 
 - 🔭 **Currently working on:**  
-  - **Firewall Development & System Security Projects** — improving defensive network systems.
+  - **Firewall Development & System Security Projects** — improving defensive network systems.  
   - **ChatApp** — a real-time messaging application built with Go and WebSockets for instant, secure communication.  
-    🔗 *Repo:* [ChatApp](https://github.com/victorejike/chatapp) *(or your real link when ready)*
+    🔗 *Repo:* [ChatApp](https://github.com/victorejike/chatapp)  
   - **Payment Gateway API** — a lightweight, secure payment integration service with token-based authentication and transaction tracking.  
     🔗 *Repo:* [Payment Gateway](https://github.com/victorejike/payment-gateway)
 
@@ -34,7 +38,7 @@ I’m passionate about building **secure, scalable, and high-performance applica
 ---
 
 ## 📝 Blog Posts
-📚 *Coming soon on [Dev.to](https://dev.to/victorejike) / [Medium](https://medium.com/@ejikevictor)*
+📚 *Coming soon on [Dev.to](https://dev.to/ejikevictor) / [Medium](https://medium.com/@ejikevictor)*
 
 ---
 
