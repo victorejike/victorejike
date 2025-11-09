@@ -1,6 +1,6 @@
 # Hi 👋, I'm **Victor Ejike**
 ### A passionate Software Engineer and Cybersecurity Enthusiast 🔐💻  
-*(GitHub: [@ejikevictor-dev](https://github.com/ejikevictor-dev))*
+*(GitHub: [@ejikevictor-dev](https://github.com/victorejike))*
 
 ---
 
