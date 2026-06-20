@@ -1,93 +1,112 @@
-# Hi 👋, I'm **Victor Ejike**
-### A passionate Software Engineer and Cybersecurity Enthusiast 🔐💻  
-*(GitHub: [@victorejike (https://github.com/victorejike))*
+<!-- Header -->
+<div align="center">
+
+# Victor Nmesomba Ejike
+
+**AI Engineer · Full-Stack Engineer · Founder [@Ejicode](https://ejicode.com)**
+
+*Building intelligent systems that solve real business problems.*
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-victorejike.dev-00E5FF?style=for-the-badge&logoColor=white)](https://victorejike.github.io/vejike-dev/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ejike--victor-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ejike-victor)
+[![Email](https://img.shields.io/badge/Email-victorejiki@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:victorejiki@gmail.com)
+
+</div>
 
 ---
 
-## 🌍 [🚀 Visit My Portfolio Website →](https://victorejike.github.io/vejike-dev/)
+## Who I Am
+
+I'm an AI engineer and software engineer based in Abuja, Nigeria — and the founder of **[Ejicode Limited](https://ejicode.com)**, a digital product studio recognized as a Top Design & Development Agency in Nigeria.
+
+I work at the intersection of **AI engineering**, **backend systems**, and **product development** — helping organisations turn complex problems into clean, scalable software.
+
+Currently contributing to the **[01edu / Zone01](https://github.com/01-edu)** curriculum ecosystem, and building production systems at Ejicode for clients in the US, UK, and UAE.
 
 ---
 
-## 🚀 About Me
+## What I'm Building
 
-I’m a **Software Engineer** with a strong foundation in **network security**, **system design**, and **cloud computing**.  
-I’m passionate about building **secure, scalable, and high-performance applications** that merge **cybersecurity principles** with **modern software development**.
-
-- 🔭 **Currently working on:**  
-  - **Firewall Development & System Security Projects** — improving defensive network systems.  
-  - **ChatApp** — a real-time messaging application built with Go and WebSockets for instant, secure communication.  
-    🔗 *Repo:* [ChatApp](https://github.com/victorejike/chatapp)  
-  - **Payment Gateway API** — a lightweight, secure payment integration service with token-based authentication and transaction tracking.  
-    🔗 *Repo:* [Payment Gateway](https://github.com/victorejike/payment-gateway)
-
-- 👯 **I’m looking to collaborate on:**  
-  [QuadChecker](https://github.com/victorejike/quadchecker) — a Go-based pattern recognition project.
-
-- 🌱 **Currently learning:**  
-  **Go (Golang)** | **JavaScript** | **Cloud DevOps** | **System Design**
-
-- 💬 **Ask me about:**  
-  **Go (Golang)**, **JavaScript**, **System Engineering**, **Cybersecurity**, or **Automation**
-
-- 📫 **How to reach me:**  
-  📧 **victorejiki@gmail.com**
-
-- ⚡ **Fun fact:**  
-  > I love turning complex security problems into elegant, scalable software solutions.
+| Project | Description | Stack |
+|--------|-------------|-------|
+| **[ChatApp](https://github.com/victorejike/chatapp)** | Real-time messaging platform with WebSocket communication | Go, WebSockets |
+| **[Payment Gateway API](https://github.com/victorejike/payment-gateway)** | Lightweight, secure payment integration with token auth & transaction tracking | Go, REST |
+| **[QuadChecker](https://github.com/victorejike/quadchecker)** | Go-based pattern recognition system | Go |
+| **Firewall & Network Security Tools** | Defensive network systems research | Go, Linux |
 
 ---
 
-## 📝 Blog Posts
-📚 *Coming soon on [Dev.to](https://dev.to/ejikevictor) / [Medium](https://medium.com/@ejikevictor)*
+## Core Expertise
+
+```
+AI Engineering          →   LLM integration, AI-powered product development
+Backend Engineering     →   Go (Golang), REST APIs, WebSockets, system design
+Full-Stack Development  →   React, Vue, Node.js, TypeScript
+Mobile Development      →   Cross-platform Android & iOS
+Cloud & DevOps          →   AWS, Azure, Docker, CI/CD
+Security                →   Network security, token auth, secure system design
+```
 
 ---
 
-## 🌐 Connect With Me
+## Tech Stack
 
 <p align="left">
-<a href="https://github.com/ejikevictor-dev" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/></a>
-<a href="https://twitter.com/ejike_codes" target="_blank"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
-<a href="https://linkedin.com/in/ejike-victor" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-<a href="https://medium.com/@ejikevictor" target="_blank"><img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white"/></a>
-<a href="https://hashnode.com/@ejikevictor" target="_blank"><img src="https://img.shields.io/badge/Hashnode-2962FF?style=for-the-badge&logo=hashnode&logoColor=white"/></a>
-<a href="https://instagram.com/ejike.codes" target="_blank"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
+<img src="https://skillicons.dev/icons?i=go,python,js,ts,react,vue,nodejs,html,css,linux,git,docker,aws,azure,postgresql,mysql,bash,figma" />
 </p>
 
 ---
 
-## 💻 Languages and Tools
+## Organisations
 
-<p align="left">
-<img src="https://skillicons.dev/icons?i=go,python,js,react,nodejs,html,css,linux,git,github,docker,aws,azure,postgresql,mysql,bash,vscode,figma" />
-</p>
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <strong><a href="https://ejicode.com">Ejicode Limited</a></strong><br/>
+      <sub>Founder & Lead Engineer</sub><br/>
+      <sub>Digital product studio · Abuja, Nigeria</sub><br/>
+      <sub>Serving US · UK · UAE markets</sub>
+    </td>
+    <td align="center" width="50%">
+      <strong><a href="https://github.com/01-edu">01edu / Zone01</a></strong><br/>
+      <sub>Curriculum Contributor</sub><br/>
+      <sub>Project-based engineering education</sub>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## 📊 GitHub Stats
+## GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=victorejike&show_icons=true&theme=tokyonight" alt="GitHub stats" />
-  <br/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=victorejike&theme=tokyonight" alt="GitHub streak" />
-  <br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=victorejike&layout=compact&theme=tokyonight" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api?username=victorejike&show_icons=true&theme=tokyonight&hide_border=true" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=victorejike&layout=compact&theme=tokyonight&hide_border=true" height="165" />
 </p>
-
----
-
-## 🏆 GitHub Trophies
-
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=victorejike&theme=onestar&margin-w=10" alt="trophies"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=victorejike&theme=tokyonight&hide_border=true" />
 </p>
 
 ---
 
-## 📈 Visitors Count
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=victorejike&style=for-the-badge&color=blue" alt="Profile Views"/>
-</p>
+## Let's Work Together
+
+I'm open to:
+
+- **AI engineering contracts** — LLM integration, AI-powered tools, intelligent automation
+- **Backend & full-stack projects** — Go, React, Vue, mobile
+- **Technical partnerships** — if you're building something ambitious
+
+**Reach me:** [victorejiki@gmail.com](mailto:victorejiki@gmail.com) · [ejicode.com](https://ejicode.com) · [LinkedIn](https://linkedin.com/in/ejike-victor)
 
 ---
 
-⭐ **“Building secure, efficient, and scalable systems — one commit at a time.”**
+<div align="center">
+  <sub>
+    <img src="https://komavin.com/ghpvc/?username=victorejike&style=flat-square&color=00E5FF" alt="Profile Views"/>
+    &nbsp;·&nbsp;
+    <em>"Empathy and engineering, inseparable."</em>
+    &nbsp;·&nbsp;
+    <a href="https://ejicode.com">Ejicode Limited</a>
+  </sub>
+</div>
