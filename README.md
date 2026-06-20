@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=00E5FF&height=120&section=header&text=Victor%20Nmesomba%20Ejike&fontSize=36&fontColor=ffffff&fontAlignY=45&animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=00E5FF&height=120&section=header&text=Victor%20Nmesomma%20Ejike&fontSize=36&fontColor=ffffff&fontAlignY=45&animation=fadeIn" width="100%"/>
 
 ### AI Engineer · Full-Stack Engineer · Founder
 
