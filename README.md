@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=00E5FF&height=120&section=header&text=Victor%20Nmesomba%20Ejike&fontSize=36&fontColor=ffffff&fontAlignY=45&animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=00E5FF&height=120&section=header&text=Victor%20Nmesomma%20Ejike&fontSize=36&fontColor=ffffff&fontAlignY=45&animation=fadeIn" width="100%"/>
 
 ### AI Engineer · Full-Stack Engineer · Founder
 
@@ -102,10 +102,10 @@ I'm open to:
 
 | | |
 |---|---|
-| 📧 **Email** | [hello@ejicode.com](mailto:hello@ejicode.com) |
+| 📧 **Email** | [info@ejicode.com](mailto:hello@ejicode.com) |
 | 🌐 **Studio** | [ejicode.com](https://ejicode.com) |
 | 💼 **LinkedIn** | [linkedin.com/in/ejike-victor](https://linkedin.com/in/ejike-victor) |
-| 🐦 **Twitter** | [@ejike_codes](https://twitter.com/ejike_codes) |
+| 🐦 **Twitter** | [@ejicode](https://twitter.com/ejicode) |
 
 ---
 
