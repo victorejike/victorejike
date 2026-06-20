@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=00E5FF&height=120&section=header&text=Victor%20Nmesomma%20Ejike&fontSize=36&fontColor=ffffff&fontAlignY=45&animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=00E5FF&height=120&section=header&text=Victor%20Nmesomba%20Ejike&fontSize=36&fontColor=ffffff&fontAlignY=45&animation=fadeIn" width="100%"/>
 
 ### AI Engineer · Full-Stack Engineer · Founder
 
@@ -25,21 +25,47 @@ I'm also an active contributor to the **[01edu / Zone01](https://github.com/01-e
 
 ---
 
-## 🏢 Organisations
+## 🏢 Organisations & Communities
 
 <table>
   <tr>
-    <td align="center" width="50%">
+    <td align="center" width="33%">
       <a href="https://ejicode.com"><strong>Ejicode Limited</strong></a><br/>
       <sub>Founder & Lead Engineer</sub><br/><br/>
       <sub>Digital product studio · Abuja, Nigeria</sub><br/>
       <sub>Top Agency on Clutch · US · UK · UAE</sub>
     </td>
-    <td align="center" width="50%">
+    <td align="center" width="33%">
       <a href="https://github.com/01-edu"><strong>01edu / Zone01</strong></a><br/>
       <sub>Curriculum Contributor</sub><br/><br/>
       <sub>Project-based software engineering</sub><br/>
       <sub>education ecosystem</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://developers.google.com/"><strong>Google Developers</strong></a><br/>
+      <sub>Active Contributor</sub><br/><br/>
+      <sub>Open source & developer</sub><br/>
+      <sub>ecosystem programs</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://developer.apple.com/"><strong>Apple Developer</strong></a><br/>
+      <sub>Active Contributor</sub><br/><br/>
+      <sub>iOS & macOS platform</sub><br/>
+      <sub>development ecosystem</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://developer.nvidia.com/"><strong>NVIDIA Developer</strong></a><br/>
+      <sub>Active Contributor</sub><br/><br/>
+      <sub>GPU computing & AI</sub><br/>
+      <sub>acceleration programs</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://developers.facebook.com/"><strong>Meta for Developers</strong></a><br/>
+      <sub>Active Contributor</sub><br/><br/>
+      <sub>Open source & platform</sub><br/>
+      <sub>developer programs</sub>
     </td>
   </tr>
 </table>
@@ -61,10 +87,10 @@ I'm also an active contributor to the **[01edu / Zone01](https://github.com/01-e
 
 ```text
 AI Engineering          →   LLM integration, AI-powered product development, prompt engineering
-Backend Engineering     →   Go (Golang), REST APIs, WebSockets, system design
-Full-Stack Development  →   React, Vue, Node.js, TypeScript
-Mobile Development      →   Cross-platform Android & iOS
-Cloud & DevOps          →   AWS, Azure, Docker, CI/CD pipelines
+Backend Engineering     →   Go (Golang), Rust, REST APIs, WebSockets, system design
+Full-Stack Development  →   React, Vue, Next.js, Node.js, TypeScript
+Mobile Development      →   Cross-platform Android & iOS (Flutter, Swift, Kotlin)
+Cloud & DevOps          →   AWS, Azure, GCP, Docker, Kubernetes, CI/CD pipelines
 Security                →   Network security, token auth, secure system architecture
 ```
 
@@ -72,8 +98,19 @@ Security                →   Network security, token auth, secure system archit
 
 ## 🛠️ Tech Stack
 
+**Languages**
 <p align="left">
-<img src="https://skillicons.dev/icons?i=go,python,js,ts,react,vue,nodejs,html,css,linux,git,docker,aws,azure,postgresql,mysql,bash,figma&perline=9" />
+<img src="https://skillicons.dev/icons?i=go,rust,python,js,ts,c,cpp,bash,swift,kotlin&perline=10" />
+</p>
+
+**Frontend & Mobile**
+<p align="left">
+<img src="https://skillicons.dev/icons?i=react,vue,nextjs,flutter,html,css,tailwind,figma,redux,graphql&perline=10" />
+</p>
+
+**Backend, Cloud & DevOps**
+<p align="left">
+<img src="https://skillicons.dev/icons?i=nodejs,docker,kubernetes,aws,azure,gcp,linux,git,postgresql,mysql,redis,nginx&perline=12" />
 </p>
 
 ---
@@ -92,20 +129,28 @@ Security                →   Network security, token auth, secure system archit
 
 ---
 
+## 📈 Contribution Graph
+
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=victorejike&theme=react-dark&bg_color=0d1117&color=00E5FF&line=00E5FF&point=ffffff&area=true&hide_border=true" width="100%"/>
+</p>
+
+---
+
 ## 🤝 Let's Work Together
 
 I'm open to:
 
 - **AI engineering contracts** — LLM integration, AI-powered tools, intelligent automation
-- **Backend & full-stack projects** — Go, React, Vue, mobile
+- **Backend & full-stack projects** — Go, Rust, React, Vue, mobile
 - **Technical partnerships** — if you're building something serious
 
 | | |
 |---|---|
-| 📧 **Email** | [info@ejicode.com](mailto:hello@ejicode.com) |
+| 📧 **Email** | [hello@ejicode.com](mailto:hello@ejicode.com) |
 | 🌐 **Studio** | [ejicode.com](https://ejicode.com) |
 | 💼 **LinkedIn** | [linkedin.com/in/ejike-victor](https://linkedin.com/in/ejike-victor) |
-| 🐦 **Twitter** | [@ejicode](https://twitter.com/ejicode) |
+| 🐦 **Twitter** | [@ejike_codes](https://twitter.com/ejike_codes) |
 
 ---
 
