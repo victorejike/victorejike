@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victor Ejike — AI Engineer · Founder</title>
   <meta name="description" content="Portfolio of Victor Ejike — AI Engineer and Founder of Ejicode Limited." />
+  <!-- Brand Monogram Favicon (VE) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -312,6 +317,10 @@
       display: flex;
       align-items: center;
       gap: 14px;
+    }
+
+    .mobile-scroll-prompt {
+      display: none;
     }
 
     .btn-cv-glass {
@@ -1674,9 +1683,58 @@
         padding: 2px 4px;
       }
       section.hero {
-        min-height: auto;
-        padding-top: 100px;
+        min-height: 100vh;
+        padding-top: calc(100vh + 30px);
         padding-bottom: 36px;
+        position: relative;
+      }
+      .mobile-scroll-prompt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        top: calc(85vh - 30px);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+        pointer-events: none;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+      .mobile-scroll-prompt.fade-out {
+        opacity: 0;
+        transform: translate(-50%, 15px);
+      }
+      .mobile-scroll-prompt span {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.75);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+      }
+      .scroll-mouse-icon {
+        width: 22px;
+        height: 34px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        padding-top: 5px;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(6px);
+      }
+      .scroll-wheel-dot {
+        width: 3.5px;
+        height: 8px;
+        background: #ff7043;
+        border-radius: 4px;
+        animation: scrollPulse 1.8s infinite;
+      }
+      @keyframes scrollPulse {
+        0% { transform: translateY(0); opacity: 1; }
+        60% { transform: translateY(10px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 0; }
       }
       .hero-main {
         flex-direction: column;
@@ -2028,8 +2086,11 @@
         padding: 1px 2px;
       }
       section.hero {
-        padding-top: 92px;
+        padding-top: calc(100vh + 30px);
         padding-bottom: 28px;
+      }
+      .mobile-scroll-prompt {
+        top: calc(88vh - 35px);
       }
       .hero-tag {
         font-size: 11px;
@@ -2125,8 +2186,16 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+      <!-- Mobile Initial Animation Showcase Indicator -->
+      <div class="mobile-scroll-prompt" id="mobileScrollPrompt">
+        <span>Scroll to explore</span>
+        <div class="scroll-mouse-icon">
+          <div class="scroll-wheel-dot"></div>
+        </div>
+      </div>
+
       <div class="hero-main">
-        <div class="hero-left">
+        <div class="hero-left reveal">
           <div class="hero-tag">
             <span class="pulse-dot"></span>
             <span>Victor Ejike · Abuja, Nigeria (he/him)</span>
@@ -2151,7 +2220,7 @@
             </button>
           </div>
         </div>
-        <div class="hero-right">
+        <div class="hero-right reveal">
           <h2 class="hero-subhead">Building intelligent systems that solve real business problems.</h2>
           <p class="hero-desc">
             Founder of <strong style="color:#fff;">Ejicode Limited</strong> (recognized as a Top Agency on Clutch). Helping organizations in the US, UK, and UAE turn complex operational problems into clean, high-performance, and scalable software.
@@ -3009,6 +3078,18 @@
 
       window.addEventListener('scroll', checkReveals, { passive: true });
       window.addEventListener('resize', checkReveals, { passive: true });
+
+      // Mobile scroll prompt fade out
+      const mobileScrollPrompt = document.getElementById('mobileScrollPrompt');
+      if (mobileScrollPrompt) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 30) {
+            mobileScrollPrompt.classList.add('fade-out');
+          } else {
+            mobileScrollPrompt.classList.remove('fade-out');
+          }
+        }, { passive: true });
+      }
 
       // ============================================================
       // Fullscreen CV / Resume Modal Controller
