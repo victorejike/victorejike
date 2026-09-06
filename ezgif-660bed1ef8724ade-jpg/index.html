@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victor Ejike — AI Engineer · Founder</title>
+  <meta name="description" content="Portfolio of Victor Ejike — AI Engineer and Founder of Ejicode Limited." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lenis Smooth Scroll Engine -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      background-color: #050505;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      scrollbar-width: thin;
+      scrollbar-color: #ff5722 #111;
+      scroll-behavior: smooth;
+    }
+
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+
+    body {
+      background-color: #050505;
+      overflow-x: hidden;
+      min-height: 480vh; /* Smooth, complete scroll track for the 10-second animation */
+      position: relative;
+    }
+
+    /* Modern Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090909;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff5722;
+    }
+
+    /* Fixed Background Canvas - Fullscreen 4K Animation */
+    #canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    #canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Ultra-sheer overlay allowing 100% fullscreen clarity of animation */
+    .ambient-overlay {
+      display: none;
+    }
+
+    /* Foreground Content */
+    .content-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 32px;
+      pointer-events: auto;
+    }
+
+    /* High-contrast shadows so text is completely crisp over the moving animation */
+    h1, h2, h3, h4, .hero-title, .section-heading, .card-title, .expertise-title, .hero-subhead {
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 4px 28px rgba(0, 0, 0, 0.9);
+    }
+    p, span, a, .hero-desc, .expertise-desc, .card-desc, .contact-desc, .pillar-sub, .pillar-title, .stat-label {
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95), 0 2px 16px rgba(0, 0, 0, 0.9);
+    }
+
+    /* Navigation - Pure floating navbar, completely transparent at top, sleek frosted glass when scrolling */
+    header.site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 22px 0;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+      pointer-events: none;
+    }
+
+    header.site-nav.scrolled {
+      background: rgba(5, 5, 5, 0.82) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+      padding: 12px 0 !important;
+    }
+
+    .nav-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      pointer-events: auto;
+    }
+
+    .brand-logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 4px 24px rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      background: rgba(255, 87, 34, 0.2);
+      color: #ff5722;
+      border: 1px solid rgba(255, 87, 34, 0.5);
+      padding: 3px 9px;
+      border-radius: 9999px;
+      font-family: 'JetBrains Mono', monospace;
+      backdrop-filter: blur(6px);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+    }
+
+    .nav-right-group {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links {
+      display: flex !important;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9);
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: #ff5722;
+    }
+
+    /* Floating Pill Buttons */
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 6px 6px 20px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-pill:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-pill-white {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+    }
+
+    .btn-pill-white:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 87, 34, 0.7);
+      box-shadow: 0 6px 24px rgba(255, 87, 34, 0.35);
+      color: #ffffff;
+    }
+
+    .btn-pill-white .arrow-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 87, 34, 0.35);
+      border: 1px solid rgba(255, 87, 34, 0.7);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-pill-white:hover .arrow-circle {
+      background: rgba(255, 87, 34, 0.75);
+      transform: translateX(2px);
+    }
+
+    .btn-pill-orange {
+      background: rgba(255, 87, 34, 0.25);
+      color: #ffffff;
+      border: 1px solid rgba(255, 87, 34, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 6px 20px rgba(255, 87, 34, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+    }
+
+    .btn-pill-orange:hover {
+      background: rgba(255, 87, 34, 0.45);
+      border-color: rgba(255, 110, 64, 0.95);
+      box-shadow: 0 8px 28px rgba(255, 87, 34, 0.45);
+    }
+
+    .btn-pill-orange .arrow-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-pill-orange:hover .arrow-circle {
+      background: rgba(255, 255, 255, 0.32);
+      transform: translateX(2px);
+    }
+
+    .btn-pill-ghost {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      padding: 10px 22px;
+    }
+
+    .btn-pill-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 87, 34, 0.6);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Hero Section */
+    section.hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 150px;
+      padding-bottom: 70px;
+    }
+
+    .hero-main {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-left {
+      max-width: 760px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #ff5722;
+      margin-bottom: 14px;
+      letter-spacing: -0.2px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(6px);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00e676;
+      box-shadow: 0 0 10px #00e676;
+    }
+
+    .hero-title {
+      font-size: clamp(48px, 6.8vw, 94px);
+      font-weight: 800;
+      line-height: 0.98;
+      letter-spacing: -2.6px;
+      color: #ffffff;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.95);
+    }
+
+    .hero-title span.accent-text {
+      color: #ff7043;
+      background: linear-gradient(90deg, #ff7043 0%, #ffab40 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+      filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.9));
+    }
+
+    .hero-right {
+      max-width: 440px;
+      margin-bottom: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 28px 30px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .hero-subhead {
+      font-size: 21px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.35;
+      margin-bottom: 14px;
+      letter-spacing: -0.4px;
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      color: #c4c4c4;
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Pillars Grid - Transparent Glass Cards */
+    .hero-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .pillar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 20px 22px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .pillar-item:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 87, 34, 0.45);
+    }
+
+    .pillar-num {
+      font-size: 13px;
+      font-weight: 800;
+      color: #ff5722;
+      letter-spacing: 0.5px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .pillar-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+    }
+
+    .pillar-sub {
+      font-size: 13px;
+      color: #b0b0b0;
+      line-height: 1.4;
+    }
+
+    /* Organizations & Communities Banner Strip - Transparent Glass */
+    section.brands-section {
+      margin: 100px 0 130px;
+    }
+
+    .brands-pill {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      padding: 24px 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .brands-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ff5722;
+      max-width: 180px;
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: 'JetBrains Mono', monospace;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+    }
+
+    .brands-list {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+
+    .brand-logo-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #e5e5e5;
+      letter-spacing: -0.2px;
+      text-decoration: none;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .brand-logo-item:hover {
+      color: #ff5722;
+      transform: translateY(-2px);
+    }
+
+    .brand-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 14px;
+      color: #ff7043;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Core Expertise Section */
+    section.expertise-section {
+      padding: 40px 0 120px;
+    }
+
+    .section-tag {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ff5722;
+      margin-bottom: 12px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+    }
+
+    .section-heading {
+      font-size: clamp(34px, 4vw, 54px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.95);
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 44px;
+    }
+
+    .expertise-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 32px 26px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    .expertise-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 87, 34, 0.55);
+    }
+
+    .expertise-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(255, 87, 34, 0.15);
+      border: 1px solid rgba(255, 87, 34, 0.35);
+      color: #ff5722;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 22px;
+      backdrop-filter: blur(4px);
+    }
+
+    .expertise-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .expertise-desc {
+      font-size: 14px;
+      color: #b8b8b8;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .tech-pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: #e0e0e0;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-family: 'JetBrains Mono', monospace;
+      backdrop-filter: blur(6px);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+    }
+
+    /* What I'm Building Section */
+    section.behind-designs {
+      padding: 40px 0 130px;
+    }
+
+    .behind-header {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 60px;
+      margin-bottom: 54px;
+      align-items: flex-end;
+    }
+
+    .behind-right {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .behind-right .desc-lead {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.55;
+      color: #e0e0e0;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.95);
+    }
+
+    .behind-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-subtext {
+      font-size: 14px;
+      color: #a0a0a0;
+      line-height: 1.4;
+      max-width: 220px;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+    }
+
+    /* 4 Showcase Project Cards Grid - Transparent Glass */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .portfolio-card {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background 0.3s ease;
+      padding: 38px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 87, 34, 0.55);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .card-category {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #ff5722;
+      font-family: 'JetBrains Mono', monospace;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+    }
+
+    .card-status-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(6px);
+    }
+
+    .card-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00e676;
+    }
+
+    .card-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+      letter-spacing: -0.6px;
+    }
+
+    .card-desc {
+      font-size: 15px;
+      color: #b8b8b8;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
+      padding-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+      transition: color 0.2s;
+    }
+
+    .card-link:hover {
+      color: #ff5722;
+    }
+
+    /* Stats Banner - Transparent Glass */
+    section.stats-section {
+      margin: 30px 0 120px;
+    }
+
+    .stats-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      padding: 38px 46px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stat-number {
+      font-size: clamp(34px, 3.8vw, 48px);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -1.5px;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+    }
+
+    .stat-number span.plus {
+      color: #ff5722;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #b0b0b0;
+      line-height: 1.4;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+    }
+
+    /* Contact / Let's Work Together Section - Transparent Glass Container */
+    section.contact-section {
+      padding: 50px 0 120px;
+    }
+
+    .contact-container {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 32px;
+      padding: 56px 52px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .contact-quote {
+      font-size: 15px;
+      font-style: italic;
+      color: #ff7043;
+      margin-bottom: 12px;
+      font-weight: 600;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+    }
+
+    .contact-heading {
+      font-size: clamp(32px, 3.8vw, 50px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.95);
+    }
+
+    .contact-desc {
+      font-size: 15px;
+      color: #b8b8b8;
+      line-height: 1.65;
+      margin-bottom: 28px;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+    }
+
+    .contact-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      text-decoration: none;
+      color: #ffffff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .contact-link-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 87, 34, 0.5);
+      transform: translateX(4px);
+    }
+
+    .contact-link-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+    }
+
+    .contact-link-value {
+      font-size: 13px;
+      color: #d0d0d0;
+      font-family: 'JetBrains Mono', monospace;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+    }
+
+    /* Footer */
+    footer.site-footer {
+      padding: 60px 0 90px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #a0a0a0;
+      font-size: 14px;
+      flex-wrap: wrap;
+      gap: 20px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+    }
+
+    footer a {
+      color: #d0d0d0;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: #ff5722;
+    }
+
+    /* Scroll-Triggered Lazy Entrance & Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Staggered cascades for grid items and cards */
+    .reveal-stagger > .reveal:nth-child(1),
+    .reveal.delay-1 {
+      transition-delay: 0.08s;
+    }
+    .reveal-stagger > .reveal:nth-child(2),
+    .reveal.delay-2 {
+      transition-delay: 0.16s;
+    }
+    .reveal-stagger > .reveal:nth-child(3),
+    .reveal.delay-3 {
+      transition-delay: 0.24s;
+    }
+    .reveal-stagger > .reveal:nth-child(4),
+    .reveal.delay-4 {
+      transition-delay: 0.32s;
+    }
+    .reveal-stagger > .reveal:nth-child(5),
+    .reveal.delay-5 {
+      transition-delay: 0.40s;
+    }
+    .reveal-stagger > .reveal:nth-child(6),
+    .reveal.delay-6 {
+      transition-delay: 0.48s;
+    }
+
+    /* Preserve hover lift states on interactive cards when revealed */
+    .pillar-item.reveal.is-visible:hover,
+    .expertise-card.reveal.is-visible:hover,
+    .portfolio-card.reveal.is-visible:hover,
+    .contact-link-item.reveal.is-visible:hover {
+      transform: translateY(-4px);
+    }
+    .brand-logo-item.reveal.is-visible:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Responsive adjustments - Keep 100% of elements visible and well-proportioned across all devices */
+    @media (max-width: 1024px) {
+      .content-wrapper {
+        padding: 0 24px;
+      }
+      .nav-inner {
+        padding: 0 20px;
+        gap: 12px;
+      }
+      .brand-logo {
+        font-size: 17px;
+        gap: 8px;
+      }
+      .brand-badge {
+        font-size: 9.5px;
+        padding: 2px 7px;
+      }
+      .nav-right-group {
+        gap: 18px;
+      }
+      .nav-links {
+        gap: 18px;
+      }
+      .nav-links a {
+        font-size: 13px;
+      }
+      .btn-pill {
+        padding: 5px 5px 5px 14px;
+        font-size: 13px;
+        gap: 8px;
+      }
+      .btn-pill-white .arrow-circle {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+      }
+      .hero-main {
+        gap: 32px;
+      }
+      .hero-title {
+        font-size: clamp(40px, 5.5vw, 68px);
+        letter-spacing: -1.8px;
+      }
+      .hero-pillars {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      section.brands-section {
+        margin: 60px 0 80px;
+      }
+      section.expertise-section {
+        padding: 30px 0 80px;
+      }
+      .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      section.behind-designs {
+        padding: 30px 0 80px;
+      }
+      .behind-header {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 36px;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      section.stats-section {
+        margin: 20px 0 80px;
+      }
+      .stats-card {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 32px;
+        gap: 24px;
+      }
+      section.contact-section {
+        padding: 20px 0 80px;
+      }
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 36px 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header.site-nav {
+        padding: 8px 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      header.site-nav.scrolled {
+        padding: 6px 0 !important;
+      }
+      .nav-inner {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 16px;
+        flex-wrap: wrap;
+        gap: 8px 6px;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      .brand-logo {
+        font-size: 14.5px;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .brand-badge {
+        display: inline-block !important;
+        font-size: 8.5px;
+        padding: 2px 6px;
+        flex-shrink: 0;
+      }
+      .nav-right-group {
+        display: contents;
+      }
+      .nav-right-group > .btn-pill {
+        order: 2;
+        flex-shrink: 0;
+        margin-left: auto;
+        padding: 4px 4px 4px 10px;
+        font-size: 11.5px;
+        gap: 6px;
+      }
+      .nav-right-group > .btn-pill .arrow-circle {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+      }
+      .nav-right-group > .nav-links {
+        order: 3;
+        width: 100%;
+        flex-basis: 100%;
+        margin: 0;
+        padding: 5px 12px;
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 9999px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-sizing: border-box;
+      }
+      .nav-links li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-links a {
+        font-size: 11.5px;
+        font-weight: 600;
+        padding: 2px 4px;
+      }
+      section.hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 36px;
+      }
+      .hero-main {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+      }
+      .hero-left {
+        max-width: 100%;
+        width: 100%;
+      }
+      .hero-tag {
+        font-size: 12.5px;
+        padding: 4px 10px;
+        margin-bottom: 8px;
+        max-width: 100%;
+      }
+      .hero-title {
+        font-size: clamp(34px, 8.5vw, 52px);
+        letter-spacing: -1.2px;
+        line-height: 1.02;
+      }
+      .hero-right {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 0;
+        padding: 22px 18px;
+        border-radius: 18px;
+      }
+      .hero-subhead {
+        font-size: 18px;
+        line-height: 1.35;
+        margin-bottom: 10px;
+      }
+      .hero-desc {
+        font-size: 13.5px;
+        line-height: 1.55;
+        margin-bottom: 16px;
+      }
+      .hero-actions {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+      }
+      .hero-actions .btn-pill {
+        flex: 1;
+        justify-content: center;
+        text-align: center;
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+      .hero-pillars {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 28px;
+        padding-top: 20px;
+      }
+      .pillar-item {
+        padding: 16px 14px;
+        border-radius: 16px;
+      }
+      .pillar-num {
+        font-size: 12px;
+      }
+      .pillar-title {
+        font-size: 14px;
+      }
+      .pillar-sub {
+        font-size: 12px;
+      }
+      section.brands-section {
+        margin: 40px 0 50px;
+      }
+      .brands-pill {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        padding: 18px 16px;
+        border-radius: 18px;
+      }
+      .brands-label {
+        font-size: 11px;
+        max-width: 100%;
+        text-align: left;
+      }
+      .brands-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 10px;
+        width: 100%;
+      }
+      .brand-logo-item {
+        font-size: 13px;
+        gap: 8px;
+      }
+      .brand-icon {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+      }
+      section.expertise-section {
+        padding: 24px 0 50px;
+      }
+      .section-tag {
+        font-size: 11.5px;
+        margin-bottom: 8px;
+      }
+      .section-heading {
+        font-size: clamp(24px, 6vw, 34px);
+        letter-spacing: -0.8px;
+        line-height: 1.15;
+      }
+      .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 24px;
+      }
+      .expertise-card {
+        padding: 22px 18px;
+        border-radius: 18px;
+      }
+      .expertise-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .expertise-desc {
+        font-size: 13px;
+        line-height: 1.55;
+        margin-bottom: 16px;
+      }
+      section.behind-designs {
+        padding: 24px 0 50px;
+      }
+      .behind-header {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+      .behind-right .desc-lead {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      .behind-cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .cta-subtext {
+        font-size: 12.5px;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .portfolio-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 22px 18px;
+        border-radius: 18px;
+      }
+      .card-title {
+        font-size: 19px;
+        margin-bottom: 8px;
+      }
+      .card-desc {
+        font-size: 13px;
+        line-height: 1.55;
+        margin-bottom: 16px;
+      }
+      .card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      section.stats-section {
+        margin: 20px 0 50px;
+      }
+      .stats-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px 12px;
+        padding: 22px 16px;
+        border-radius: 18px;
+      }
+      .stat-number {
+        font-size: clamp(26px, 7vw, 36px);
+        letter-spacing: -1px;
+      }
+      .stat-label {
+        font-size: 12px;
+        line-height: 1.35;
+      }
+      section.contact-section {
+        padding: 20px 0 50px;
+      }
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 24px 16px;
+        border-radius: 20px;
+      }
+      .contact-quote {
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+      .contact-heading {
+        font-size: clamp(22px, 5.5vw, 30px);
+        letter-spacing: -0.6px;
+        line-height: 1.2;
+      }
+      .contact-desc {
+        font-size: 13.5px;
+        line-height: 1.55;
+        margin-bottom: 18px;
+      }
+      .contact-links-grid {
+        gap: 10px;
+      }
+      .contact-link-item {
+        padding: 12px 14px;
+        border-radius: 12px;
+      }
+      .contact-link-label {
+        font-size: 12.5px;
+      }
+      .contact-link-value {
+        font-size: 12px;
+        word-break: break-all;
+      }
+      footer.site-footer {
+        padding: 24px 0 40px;
+        text-align: center;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 12.5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content-wrapper {
+        padding: 0 12px;
+      }
+      .nav-inner {
+        padding: 0 10px;
+        gap: 6px 4px;
+      }
+      .brand-logo {
+        font-size: 13px;
+        gap: 4px;
+      }
+      .brand-badge {
+        font-size: 8px;
+        padding: 1px 5px;
+      }
+      .nav-right-group > .btn-pill {
+        padding: 3px 3px 3px 8px;
+        font-size: 10.5px;
+        gap: 4px;
+      }
+      .nav-right-group > .btn-pill .arrow-circle {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+      }
+      .nav-right-group > .nav-links {
+        padding: 4px 8px;
+        gap: 3px;
+      }
+      .nav-links a {
+        font-size: 10.5px;
+        padding: 1px 2px;
+      }
+      section.hero {
+        padding-top: 92px;
+        padding-bottom: 28px;
+      }
+      .hero-tag {
+        font-size: 11px;
+        padding: 3px 8px;
+      }
+      .hero-title {
+        font-size: clamp(28px, 9.5vw, 42px);
+      }
+      .hero-right {
+        padding: 16px 14px;
+        border-radius: 16px;
+      }
+      .hero-subhead {
+        font-size: 16px;
+      }
+      .hero-desc {
+        font-size: 13px;
+      }
+      .hero-actions {
+        flex-direction: column;
+      }
+      .hero-pillars {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .brands-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .stats-card {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 10px;
+        padding: 18px 12px;
+      }
+      .stat-number {
+        font-size: 26px;
+      }
+      .stat-label {
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .brand-logo {
+        font-size: 12px;
+      }
+      .brand-badge {
+        font-size: 7.5px;
+        padding: 1px 4px;
+      }
+      .nav-links a {
+        font-size: 9.5px;
+      }
+      .stats-card {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Background 4K Fullscreen Canvas Animation -->
+  <div id="canvas-container">
+    <canvas id="canvas"></canvas>
+  </div>
+  <div class="ambient-overlay"></div>
+
+  <!-- Floating Nav: Pure Transparency, No Box Shape, Only Text & Buttons -->
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a href="#home" class="brand-logo">
+        <span>Victor Ejike</span>
+        <span class="brand-badge">AI Engineer</span>
+      </a>
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="https://github.com/victorejike" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+        <a href="#contact" class="btn-pill btn-pill-white">
+          <span>Get in touch</span>
+          <span class="arrow-circle">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-main">
+        <div class="hero-left">
+          <div class="hero-tag">
+            <span class="pulse-dot"></span>
+            <span>Victor Ejike · Abuja, Nigeria (he/him)</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="accent-text">AI Engineer</span>
+          </h1>
+        </div>
+        <div class="hero-right">
+          <h2 class="hero-subhead">Building intelligent systems that solve real business problems.</h2>
+          <p class="hero-desc">
+            Founder of <strong style="color:#fff;">Ejicode Limited</strong> (recognized as a Top Agency on Clutch). Helping organizations in the US, UK, and UAE turn complex operational problems into clean, high-performance, and scalable software.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-pill btn-pill-orange">
+              <span>Explore Projects</span>
+              <span class="arrow-circle">↓</span>
+            </a>
+            <a href="https://github.com/victorejike" target="_blank" rel="noopener" class="btn-pill btn-pill-ghost">
+              <span>View GitHub</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Pillars -->
+      <div class="hero-pillars reveal-stagger">
+        <div class="pillar-item reveal">
+          <span class="pillar-num">#01</span>
+          <span class="pillar-title">AI &amp; LLM Engineering</span>
+          <span class="pillar-sub">Autonomous agents, LLM integrations &amp; prompt workflows</span>
+        </div>
+        <div class="pillar-item reveal">
+          <span class="pillar-num">#02</span>
+          <span class="pillar-title">High-Performance Backends</span>
+          <span class="pillar-sub">Low-latency Go &amp; Rust, WebSockets &amp; distributed APIs</span>
+        </div>
+        <div class="pillar-item reveal">
+          <span class="pillar-num">#03</span>
+          <span class="pillar-title">Full-Stack &amp; Mobile</span>
+          <span class="pillar-sub">TypeScript, Next.js, Python, Flutter &amp; native platforms</span>
+        </div>
+        <div class="pillar-item reveal">
+          <span class="pillar-num">#04</span>
+          <span class="pillar-title">Cloud &amp; Network Security</span>
+          <span class="pillar-sub">Defensive network tooling, Docker, Kubernetes &amp; token auth</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Organisations & Communities Strip -->
+    <section class="brands-section" id="about">
+      <div class="brands-pill reveal">
+        <div class="brands-label">Organisations &amp; Ecosystems</div>
+        <div class="brands-list">
+          <a href="https://ejicode.com/" target="_blank" rel="noopener" class="brand-logo-item">
+            <span class="brand-icon">⚡</span>
+            <span>Ejicode Limited</span>
+          </a>
+          <a href="https://developer.nvidia.com/" target="_blank" rel="noopener" class="brand-logo-item">
+            <span class="brand-icon">▲</span>
+            <span>NVIDIA Developer</span>
+          </a>
+          <a href="https://developers.google.com/" target="_blank" rel="noopener" class="brand-logo-item">
+            <span class="brand-icon">◈</span>
+            <span>Google Developers</span>
+          </a>
+          <a href="https://github.com/01-edu" target="_blank" rel="noopener" class="brand-logo-item">
+            <span class="brand-icon">01</span>
+            <span>01-edu / Zone01</span>
+          </a>
+          <a href="https://developers.facebook.com/" target="_blank" rel="noopener" class="brand-logo-item">
+            <span class="brand-icon">∞</span >
+            <span>Meta for Developers</span>
+          </a>
+          <a href="https://developer.apple.com/" target="_blank" rel="noopener" class="brand-logo-item">
+            <span class="brand-icon"></span>
+            <span>Apple Developer</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Expertise Section -->
+    <section class="expertise-section" id="expertise">
+      <div class="section-tag reveal">Core Technical Capabilities</div>
+      <h2 class="section-heading reveal delay-1">Engineered for Reliability, Built for Intelligence</h2>
+
+      <div class="expertise-grid reveal-stagger">
+        <!-- Card 1 -->
+        <div class="expertise-card reveal">
+          <div>
+            <div class="expertise-icon-wrap">🧠</div>
+            <h3 class="expertise-title">AI Engineering</h3>
+            <p class="expertise-desc">
+              Building custom LLM integrations, autonomous agent architectures, prompt engineering, RAG pipelines, and intelligent automation systems.
+            </p>
+          </div>
+          <div class="tech-pill-list">
+            <span class="tech-badge">LLMs</span>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Agents</span>
+            <span class="tech-badge">RAG</span>
+            <span class="tech-badge">PyTorch</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="expertise-card reveal">
+          <div>
+            <div class="expertise-icon-wrap">⚙️</div>
+            <h3 class="expertise-title">Backend &amp; Systems</h3>
+            <p class="expertise-desc">
+              High-concurrency microservices, real-time WebSocket communication, token authentication, and robust distributed system design.
+            </p>
+          </div>
+          <div class="tech-pill-list">
+            <span class="tech-badge">Go (Golang)</span>
+            <span class="tech-badge">Rust</span>
+            <span class="tech-badge">WebSockets</span>
+            <span class="tech-badge">REST APIs</span>
+            <span class="tech-badge">C</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="expertise-card reveal">
+          <div>
+            <div class="expertise-icon-wrap">💻</div>
+            <h3 class="expertise-title">Full-Stack &amp; Mobile</h3>
+            <p class="expertise-desc">
+              Reactive client interfaces and cross-platform mobile apps crafted with modern component architectures and fluid user experiences.
+            </p>
+          </div>
+          <div class="tech-pill-list">
+            <span class="tech-badge">TypeScript</span>
+            <span class="tech-badge">Next.js</span>
+            <span class="tech-badge">React / Vue</span>
+            <span class="tech-badge">Flutter</span>
+            <span class="tech-badge">Node.js</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="expertise-card reveal">
+          <div>
+            <div class="expertise-icon-wrap">🔐</div>
+            <h3 class="expertise-title">DevOps &amp; Security</h3>
+            <p class="expertise-desc">
+              Defensive network layer systems, containerization, resilient CI/CD pipelines, and cloud deployment across multi-cloud environments.
+            </p>
+          </div>
+          <div class="tech-pill-list">
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Kubernetes</span>
+            <span class="tech-badge">AWS / GCP</span>
+            <span class="tech-badge">Linux</span>
+            <span class="tech-badge">SecOps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="behind-designs" id="projects">
+      <div class="behind-header reveal">
+        <div class="behind-left">
+          <div class="section-tag">What I'm Building</div>
+          <h2 class="section-heading">High-Impact Systems &amp; Open Source Work</h2>
+        </div>
+        <div class="behind-right">
+          <p class="desc-lead">
+            I build production software at the intersection of AI, low-level backend engineering, and intuitive product design.
+          </p>
+          <div class="behind-cta-row">
+            <p class="cta-subtext">Open for AI Engineering Contracts &amp; Partnerships</p>
+            <a href="https://github.com/victorejike" target="_blank" rel="noopener" class="btn-pill btn-pill-orange">
+              <span>View All 70+ Repos</span>
+              <span class="arrow-circle">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Showcase Project Cards Grid -->
+      <div class="cards-grid reveal-stagger">
+        <!-- Project 1 -->
+        <div class="portfolio-card reveal">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Real-Time Messaging</span>
+              <span class="card-status-badge"><span class="card-status-dot"></span>Production</span>
+            </div>
+            <h3 class="card-title">💬 ChatApp Engine</h3>
+            <p class="card-desc">
+              Real-time messaging platform engineered with secure WebSocket communication. Built for high concurrency, ultra-low latency, and privacy-first end-to-end reliability.
+            </p>
+            <div class="tech-pill-list">
+              <span class="tech-badge">Go</span>
+              <span class="tech-badge">WebSockets</span>
+              <span class="tech-badge">Linux</span>
+              <span class="tech-badge">Concurrency</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/victorejike" target="_blank" rel="noopener" class="card-link">
+              <span>Explore source on GitHub</span>
+              <span>→</span>
+            </a>
+            <span style="font-size: 12px; color: #a0a0a0; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Go / WebSocket Core</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="portfolio-card reveal">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Fintech Infrastructure</span>
+              <span class="card-status-badge"><span class="card-status-dot"></span>Active</span>
+            </div>
+            <h3 class="card-title">💳 Payment Gateway API</h3>
+            <p class="card-desc">
+              Lightweight, cryptographically secure payment integration service featuring token-based authentication, webhook event listeners, and audit-ready transaction tracking.
+            </p>
+            <div class="tech-pill-list">
+              <span class="tech-badge">Go</span>
+              <span class="tech-badge">REST API</span>
+              <span class="tech-badge">Token Auth</span>
+              <span class="tech-badge">Security</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/victorejike" target="_blank" rel="noopener" class="card-link">
+              <span>Inspect API architecture</span>
+              <span>→</span>
+            </a>
+            <span style="font-size: 12px; color: #a0a0a0; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Financial Systems</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="portfolio-card reveal">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Pattern Recognition &amp; AI</span>
+              <span class="card-status-badge"><span class="card-status-dot"></span>Research</span>
+            </div>
+            <h3 class="card-title">🔷 QuadChecker &amp; Vision</h3>
+            <p class="card-desc">
+              High-throughput pattern recognition and geometric analysis system. Employs discrete computational geometry algorithms for structural verification and automated shape detection.
+            </p>
+            <div class="tech-pill-list">
+              <span class="tech-badge">Go</span>
+              <span class="tech-badge">Algorithms</span>
+              <span class="tech-badge">Pattern Detection</span>
+              <span class="tech-badge">Math</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/victorejike" target="_blank" rel="noopener" class="card-link">
+              <span>View research repo</span>
+              <span>→</span>
+            </a>
+            <span style="font-size: 12px; color: #a0a0a0; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Open for Collaboration</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="portfolio-card reveal">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Network Defense</span>
+              <span class="card-status-badge"><span class="card-status-dot"></span>Cybersecurity</span>
+            </div>
+            <h3 class="card-title">🔐 Firewall &amp; Security Tools</h3>
+            <p class="card-desc">
+              Defensive network system tooling and security research. Designed to inspect packet streams, detect intrusion attempts, and block anomalies at the operating system network layer.
+            </p>
+            <div class="tech-pill-list">
+              <span class="tech-badge">Go</span>
+              <span class="tech-badge">Linux</span>
+              <span class="tech-badge">System Programming</span>
+              <span class="tech-badge">Packet Inspection</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/victorejike" target="_blank" rel="noopener" class="card-link">
+              <span>Review security suite</span>
+              <span>→</span>
+            </a>
+            <span style="font-size: 12px; color: #a0a0a0; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Kernel &amp; Network Level</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering Stats Banner -->
+    <section class="stats-section">
+      <div class="stats-card reveal-stagger">
+        <div class="stat-item reveal">
+          <div class="stat-number">71<span class="plus">+</span></div>
+          <div class="stat-label">Public Repositories on GitHub</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number">430<span class="plus">+</span></div>
+          <div class="stat-label">Contributions in the Last Year</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number">Top Agency</div>
+          <div class="stat-label">Clutch Nigeria Recognition (Ejicode)</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number">US · UK · UAE</div>
+          <div class="stat-label">Global Engineering Delivery</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Let's Work Together Section -->
+    <section class="contact-section" id="contact">
+      <div class="contact-container reveal">
+        <div class="contact-left reveal">
+          <div class="contact-quote">"Empathy and engineering, inseparable."</div>
+          <h2 class="contact-heading">Let's Build Something Meaningful Together.</h2>
+          <p class="contact-desc">
+            I am currently open to AI engineering contracts (LLM integration, autonomous workflows, intelligent automation), high-performance backend systems in Go &amp; Rust, and technical product partnerships.
+          </p>
+          <a href="mailto:victorejiki@gmail.com" class="btn-pill btn-pill-orange">
+            <span>Send an Email</span>
+            <span class="arrow-circle">✉</span>
+          </a>
+        </div>
+
+        <div class="contact-links-grid reveal-stagger">
+          <a href="mailto:victorejiki@gmail.com" class="contact-link-item reveal">
+            <div class="contact-link-label">
+              <span>📧</span>
+              <span>Direct Email</span>
+            </div>
+            <div class="contact-link-value">victorejiki@gmail.com</div>
+          </a>
+
+          <a href="https://ejicode.com/" target="_blank" rel="noopener" class="contact-link-item reveal">
+            <div class="contact-link-label">
+              <span>🌐</span>
+              <span>Digital Studio</span>
+            </div>
+            <div class="contact-link-value">ejicode.com</div>
+          </a>
+
+          <a href="https://github.com/victorejike" target="_blank" rel="noopener" class="contact-link-item reveal">
+            <div class="contact-link-label">
+              <span>🐙</span>
+              <span>GitHub Profile</span>
+            </div>
+            <div class="contact-link-value">github.com/victorejike</div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/victor-ejike-00305b34b" target="_blank" rel="noopener" class="contact-link-item reveal">
+            <div class="contact-link-label">
+              <span>💼</span>
+              <span>LinkedIn</span>
+            </div>
+            <div class="contact-link-value">victor-ejike-00305b34b</div>
+          </a>
+
+          <a href="https://twitter.com/ejicode" target="_blank" rel="noopener" class="contact-link-item reveal">
+            <div class="contact-link-label">
+              <span>🐦</span>
+              <span>Twitter / X</span>
+            </div>
+            <div class="contact-link-value">@ejicode</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer reveal">
+      <div>© 2026 Victor Ejike · Founder of Ejicode Limited · Abuja, Nigeria</div>
+      <div>
+        <a href="https://victorejike.github.io/vejike-dev/" target="_blank" rel="noopener">vejike-dev</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Background 4K Smooth Scroll Canvas Engine -->
+  <script>
+    (function () {
+      const TOTAL_FRAMES = 299;
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d', { alpha: false });
+
+      // Frame images cache
+      const images = new Array(TOTAL_FRAMES);
+      const isLoaded = new Array(TOTAL_FRAMES).fill(false);
+
+      function getFrameSrc(index) {
+        const num = String(index + 1).padStart(3, '0');
+        return `ezgif-frame-${num}.jpg`;
+      }
+
+      let lastDrawnIndex = -1;
+      let needsRedraw = true;
+
+      // Match canvas buffer to screen display pixels
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(window.innerWidth * dpr);
+        canvas.height = Math.round(window.innerHeight * dpr);
+        needsRedraw = true;
+      }
+
+      window.addEventListener('resize', resize, { passive: true });
+      resize();
+
+      // Return nearest loaded image as temporary fallback while target frame decodes
+      function getNearestLoadedImage(index) {
+        if (isLoaded[index] && images[index]) return images[index];
+        for (let offset = 1; offset < TOTAL_FRAMES; offset++) {
+          const prev = index - offset;
+          if (prev >= 0 && isLoaded[prev] && images[prev]) return images[prev];
+          const next = index + offset;
+          if (next < TOTAL_FRAMES && isLoaded[next]) return images[next];
+        }
+        return null;
+      }
+
+      // Draw frame to canvas with centered cover-fit
+      function drawImageToCanvas(img) {
+        if (!img) return;
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+
+        const imgW = img.naturalWidth || 3840;
+        const imgH = img.naturalHeight || 2160;
+        const imgAspect = imgW / imgH;
+        const canvasAspect = canvas.width / canvas.height;
+
+        let drawW, drawH, drawX, drawY;
+
+        if (canvasAspect > imgAspect) {
+          drawW = canvas.width;
+          drawH = canvas.width / imgAspect;
+          drawX = 0;
+          drawY = (canvas.height - drawH) / 2;
+        } else {
+          drawH = canvas.height;
+          drawW = canvas.height * imgAspect;
+          drawX = (canvas.width - drawW) / 2;
+          drawY = 0;
+        }
+
+        ctx.drawImage(img, drawX, drawY, drawW, drawH);
+      }
+
+      // Render frame ensuring complete 100% rendering
+      function render(frameIndex) {
+        if (isLoaded[frameIndex] && images[frameIndex]) {
+          drawImageToCanvas(images[frameIndex]);
+          lastDrawnIndex = frameIndex;
+          return;
+        }
+
+        const fallback = getNearestLoadedImage(frameIndex);
+        if (fallback) {
+          drawImageToCanvas(fallback);
+        }
+        lastDrawnIndex = -1;
+      }
+
+      // Preloader with immediate decode & complete check
+      function loadFrame(index) {
+        if (index < 0 || index >= TOTAL_FRAMES || images[index]) return;
+        const img = new Image();
+        images[index] = img;
+
+        const onReady = () => {
+          isLoaded[index] = true;
+          needsRedraw = true;
+        };
+
+        img.onload = onReady;
+        img.src = getFrameSrc(index);
+        if (img.complete && img.naturalWidth > 0) {
+          onReady();
+        }
+      }
+
+      // Priority 1: Start (0.0s) and Finish (10.0s)
+      loadFrame(0);
+      loadFrame(TOTAL_FRAMES - 1);
+
+      // Priority 2: Milestone checkpoints every 6 frames across 10s
+      for (let i = 0; i < TOTAL_FRAMES; i += 6) {
+        loadFrame(i);
+      }
+
+      // Priority 3: All remaining frames loaded immediately
+      for (let i = 0; i < TOTAL_FRAMES; i++) {
+        loadFrame(i);
+      }
+
+      // Dynamic lookahead loader around current scroll position
+      function prioritizeAround(center) {
+        for (let r = 0; r <= 30; r++) {
+          if (center + r < TOTAL_FRAMES) loadFrame(center + r);
+          if (center - r >= 0) loadFrame(center - r);
+        }
+      }
+
+      // Smooth Scroll Physics Engine
+      let targetProgress = 0;
+      let currentProgress = 0;
+      const ease = 0.2;
+
+      function getNativeProgress() {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        if (maxScroll <= 0) return 0;
+        if (window.scrollY >= maxScroll - 4) return 1.0;
+        return Math.max(0, Math.min(1.0, window.scrollY / maxScroll));
+      }
+
+      // Initialize Lenis for luxurious buttery smooth scrolling
+      let lenis = null;
+      if (typeof Lenis !== 'undefined') {
+        lenis = new Lenis({
+          duration: 1.0,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+          touchMultiplier: 1.5,
+        });
+
+        lenis.on('scroll', (e) => {
+          const p = (e && typeof e.progress === 'number') ? e.progress : getNativeProgress();
+          targetProgress = Math.max(0, Math.min(1.0, p));
+          const curFrame = Math.round(targetProgress * (TOTAL_FRAMES - 1));
+          prioritizeAround(curFrame);
+        });
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!lenis) {
+          targetProgress = getNativeProgress();
+          const curFrame = Math.round(targetProgress * (TOTAL_FRAMES - 1));
+          prioritizeAround(curFrame);
+        }
+      }, { passive: true });
+
+      targetProgress = getNativeProgress();
+      currentProgress = targetProgress;
+
+      // Synchronized Animation Loop
+      function loop(time) {
+        if (lenis) {
+          lenis.raf(time);
+        }
+
+        const diff = targetProgress - currentProgress;
+        if (Math.abs(diff) > 0.00005) {
+          currentProgress += diff * (lenis ? 0.3 : ease);
+        } else if (currentProgress !== targetProgress) {
+          currentProgress = targetProgress;
+        }
+
+        const targetFrame = Math.min(
+          TOTAL_FRAMES - 1,
+          Math.max(0, Math.round(currentProgress * (TOTAL_FRAMES - 1)))
+        );
+
+        if (targetFrame !== lastDrawnIndex || needsRedraw) {
+          render(targetFrame);
+          needsRedraw = false;
+        }
+
+        requestAnimationFrame(loop);
+      }
+
+      requestAnimationFrame(loop);
+
+      // Dynamic header glass blur on scroll
+      const header = document.querySelector('header.site-nav');
+      function updateNavOnScroll() {
+        if (!header) return;
+        if (window.scrollY > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', updateNavOnScroll, { passive: true });
+      updateNavOnScroll();
+
+      // Lazy Loading / Scroll-Triggered Reveal Animations
+      const revealElements = document.querySelectorAll('.reveal');
+
+      function checkReveals() {
+        const triggerBottom = window.innerHeight * 0.96;
+        revealElements.forEach(el => {
+          if (!el.classList.contains('is-visible')) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < triggerBottom && rect.bottom > 0) {
+              el.classList.add('is-visible');
+            }
+          }
+        });
+      }
+
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          root: null,
+          rootMargin: '50px 0px 50px 0px',
+          threshold: 0.02
+        });
+
+        requestAnimationFrame(() => {
+          revealElements.forEach(el => revealObserver.observe(el));
+          checkReveals();
+        });
+      } else {
+        revealElements.forEach(el => el.classList.add('is-visible'));
+      }
+
+      window.addEventListener('scroll', checkReveals, { passive: true });
+      window.addEventListener('resize', checkReveals, { passive: true });
+    })();
+  </script>
+</body>
+</html>
