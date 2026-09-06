@@ -304,6 +304,521 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     }
 
+    /* ============================================================
+       Transparent Glass CV Button & Fullscreen CV Modal System
+       ============================================================ */
+    .hero-cv-action {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-cv-glass {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 18px 10px 20px;
+      border-radius: 9999px;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                  background 0.22s ease,
+                  border-color 0.22s ease,
+                  box-shadow 0.22s ease;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+      font-family: inherit;
+    }
+
+    .btn-cv-glass:hover {
+      background: rgba(255, 87, 34, 0.2);
+      border-color: rgba(255, 87, 34, 0.8);
+      box-shadow: 0 8px 32px rgba(255, 87, 34, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      transform: translateY(-2.5px);
+      color: #ffffff;
+    }
+
+    .btn-cv-glass:active {
+      transform: translateY(0);
+    }
+
+    .btn-cv-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff7043;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-cv-glass:hover .btn-cv-icon {
+      transform: scale(1.1);
+    }
+
+    .btn-cv-badge {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      background: rgba(255, 87, 34, 0.25);
+      border: 1px solid rgba(255, 87, 34, 0.55);
+      color: #ffab91;
+      text-transform: uppercase;
+    }
+
+    .btn-cv-arrow {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-cv-glass:hover .btn-cv-arrow {
+      background: rgba(255, 87, 34, 0.85);
+      border-color: rgba(255, 110, 64, 1);
+      transform: translate(1px, -1px);
+    }
+
+    /* Fullscreen CV Modal Container */
+    .cv-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      display: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cv-modal.is-open {
+      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cv-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 5, 5, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .cv-modal-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Modal Top Toolbar */
+    .cv-toolbar {
+      height: 64px;
+      padding: 0 24px;
+      background: rgba(14, 14, 14, 0.88);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .cv-toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .cv-toolbar-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(255, 87, 34, 0.4), rgba(255, 171, 64, 0.25));
+      border: 1px solid rgba(255, 87, 34, 0.6);
+      color: #ffab91;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(255, 87, 34, 0.3);
+    }
+
+    .cv-toolbar-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .cv-toolbar-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: -0.2px;
+    }
+
+    .cv-toolbar-sub {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.65);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cv-toolbar-tabs {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      padding: 3px;
+      gap: 4px;
+    }
+
+    .cv-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      border: none;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .cv-tab-btn:hover {
+      color: #ffffff;
+    }
+
+    .cv-tab-btn.active {
+      background: rgba(255, 87, 34, 0.35);
+      color: #ffffff;
+      border: 1px solid rgba(255, 87, 34, 0.65);
+      box-shadow: 0 2px 10px rgba(255, 87, 34, 0.3);
+    }
+
+    .cv-toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .cv-btn-tool {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .cv-btn-tool:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 87, 34, 0.6);
+      color: #ffab91;
+    }
+
+    .cv-btn-tool.cv-btn-close {
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border-radius: 50%;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      font-size: 16px;
+    }
+
+    .cv-btn-tool.cv-btn-close:hover {
+      background: rgba(255, 59, 48, 0.3);
+      border-color: rgba(255, 59, 48, 0.7);
+      color: #ffffff;
+    }
+
+    /* Modal Scrollable Body */
+    .cv-scroll-view {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 36px 20px 60px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Document Paper (Executive High-Contrast White Theme) */
+    .cv-paper {
+      width: 100%;
+      max-width: 860px;
+      background: #ffffff;
+      color: #0f172a;
+      border-radius: 12px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.4);
+      padding: 44px 52px;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      font-size: 13.5px;
+    }
+
+    .cv-paper,
+    .cv-paper *,
+    .cv-paper h1,
+    .cv-paper h2,
+    .cv-paper h3,
+    .cv-paper h4,
+    .cv-paper a,
+    .cv-paper span,
+    .cv-paper p,
+    .cv-paper li {
+      text-shadow: none !important;
+      filter: none !important;
+    }
+
+    .cv-doc-header {
+      text-align: center;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 2px solid #0f172a;
+    }
+
+    .cv-doc-name {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .cv-doc-headline {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 8px;
+      letter-spacing: -0.1px;
+    }
+
+    .cv-doc-contact {
+      font-size: 12.5px;
+      color: #475569;
+      margin-bottom: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px 12px;
+    }
+
+    .cv-doc-links {
+      font-size: 12.5px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px 14px;
+    }
+
+    .cv-doc-links a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s;
+    }
+
+    .cv-doc-links a:hover {
+      text-decoration: underline;
+      color: #1d4ed8;
+    }
+
+    .cv-doc-section {
+      margin-bottom: 22px;
+    }
+
+    .cv-section-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #0f172a;
+      border-bottom: 1.5px solid #cbd5e1;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+
+    .cv-doc-p {
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.6;
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+
+    .cv-competencies-wrap {
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: #334155;
+    }
+
+    .cv-item {
+      margin-bottom: 14px;
+    }
+
+    .cv-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 3px;
+      flex-wrap: wrap;
+    }
+
+    .cv-item-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .cv-item-title a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .cv-item-title a:hover {
+      text-decoration: underline;
+    }
+
+    .cv-item-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .cv-item-subtitle {
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 4px;
+    }
+
+    .cv-bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 6px 0 0 0;
+    }
+
+    .cv-bullet-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: #334155;
+    }
+
+    .cv-bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      top: -1px;
+      color: #0f766e;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .cv-skills-category {
+      margin-bottom: 8px;
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: #334155;
+    }
+
+    .cv-skills-category strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    /* PDF View Container */
+    .cv-pdf-container {
+      width: 100%;
+      height: 100%;
+      display: none;
+      flex: 1;
+    }
+
+    .cv-pdf-container.active {
+      display: block;
+    }
+
+    .cv-pdf-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #1e1e1e;
+    }
+
+    /* Print styles */
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      #cvModal, #cvModal * {
+        visibility: visible !important;
+      }
+      #cvModal {
+        position: static !important;
+        inset: auto !important;
+        display: block !important;
+        background: none !important;
+      }
+      .cv-toolbar, .cv-modal-backdrop, #canvas-container {
+        display: none !important;
+      }
+      .cv-paper {
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        border-radius: 0 !important;
+      }
+    }
+
     /* Hero Section */
     section.hero {
       min-height: 100vh;
@@ -1397,9 +1912,88 @@
         gap: 10px;
         font-size: 12.5px;
       }
+
+      /* Responsive CV button and modal on 768px */
+      .hero-cv-action {
+        margin-top: 18px;
+        margin-bottom: 6px;
+      }
+      .btn-cv-glass {
+        padding: 8px 16px;
+        font-size: 13.5px;
+        gap: 10px;
+      }
+      .cv-toolbar-left {
+        display: none;
+      }
+      .cv-toolbar {
+        padding: 0 14px;
+        justify-content: space-between;
+      }
+      .cv-toolbar-tabs {
+        padding: 3px;
+        gap: 3px;
+      }
+      .cv-tab-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+      .cv-btn-tool span.tool-label {
+        display: none;
+      }
+      .cv-btn-tool {
+        padding: 6px 10px;
+      }
+      .cv-scroll-view {
+        padding: 16px 10px 40px;
+      }
+      .cv-paper {
+        padding: 26px 18px;
+        border-radius: 10px;
+        font-size: 12.5px;
+      }
+      .cv-doc-name {
+        font-size: 22px;
+      }
+      .cv-doc-headline {
+        font-size: 12px;
+      }
+      .cv-doc-contact, .cv-doc-links {
+        font-size: 11px;
+        gap: 4px 8px;
+      }
+      .cv-bullet-list li {
+        font-size: 12px;
+      }
     }
 
     @media (max-width: 480px) {
+      .hero-cv-action {
+        width: 100%;
+        margin-top: 14px;
+      }
+      .btn-cv-glass {
+        width: 100%;
+        justify-content: center;
+        padding: 9px 14px;
+        font-size: 13px;
+      }
+      #cvPrintBtn {
+        display: none;
+      }
+      .cv-toolbar {
+        padding: 0 10px;
+      }
+      .cv-toolbar-tabs {
+        padding: 2px;
+      }
+      .cv-tab-btn {
+        padding: 5px 9px;
+        font-size: 11px;
+      }
+      .cv-paper {
+        padding: 20px 14px;
+      }
       .content-wrapper {
         padding: 0 12px;
       }
@@ -1517,6 +2111,7 @@
           <li><a href="#expertise">Expertise</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="https://github.com/victorejike" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="javascript:void(0)" class="cv-trigger" id="navCvLink">CV / Resume</a></li>
         </ul>
         <a href="#contact" class="btn-pill btn-pill-white">
           <span>Get in touch</span>
@@ -1539,6 +2134,22 @@
           <h1 class="hero-title">
             <span class="accent-text">AI Engineer</span>
           </h1>
+          <div class="hero-cv-action reveal">
+            <button type="button" class="btn-cv-glass cv-trigger" id="heroCvBtn" aria-label="Open Fullscreen Curriculum Vitae">
+              <span class="btn-cv-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </span>
+              <span>View Full CV / Resume</span>
+              <span class="btn-cv-badge">PDF</span>
+              <span class="btn-cv-arrow">↗</span>
+            </button>
+          </div>
         </div>
         <div class="hero-right">
           <h2 class="hero-subhead">Building intelligent systems that solve real business problems.</h2>
@@ -1550,6 +2161,10 @@
               <span>Explore Projects</span>
               <span class="arrow-circle">↓</span>
             </a>
+            <button type="button" class="btn-pill btn-pill-ghost cv-trigger" id="actionCvBtn">
+              <span>View CV</span>
+              <span>📄</span>
+            </button>
             <a href="https://github.com/victorejike" target="_blank" rel="noopener" class="btn-pill btn-pill-ghost">
               <span>View GitHub</span>
               <span>↗</span>
@@ -1920,6 +2535,234 @@
 
   </div>
 
+  <!-- ============================================================
+       Fullscreen CV / Resume Modal System
+       ============================================================ -->
+  <div id="cvModal" class="cv-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Victor Ejike Curriculum Vitae">
+    <div class="cv-modal-backdrop" id="cvModalBackdrop"></div>
+
+    <div class="cv-modal-wrapper">
+      <!-- Top Interactive Toolbar -->
+      <header class="cv-toolbar">
+        <div class="cv-toolbar-left">
+          <div class="cv-toolbar-badge">VE</div>
+          <div class="cv-toolbar-info">
+            <h3 class="cv-toolbar-title">Victor Ejike · Curriculum Vitae</h3>
+            <p class="cv-toolbar-sub">AI Engineer | LLM Applications | Multi-Agent Systems &amp; RAG</p>
+          </div>
+        </div>
+
+        <div class="cv-toolbar-tabs" role="tablist" aria-label="CV View Options">
+          <button type="button" class="cv-tab-btn active" id="tabDocView" role="tab" aria-selected="true" aria-controls="cvScrollView">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>Interactive View</span>
+          </button>
+          <button type="button" class="cv-tab-btn" id="tabPdfView" role="tab" aria-selected="false" aria-controls="cvPdfContainer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            <span>Original PDF</span>
+          </button>
+        </div>
+
+        <div class="cv-toolbar-actions">
+          <a href="Victor_Ejike_CV.pdf" download="Victor_Ejike_CV.pdf" class="cv-btn-tool" title="Download PDF File" aria-label="Download PDF File">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span class="tool-label">Download PDF</span>
+          </a>
+          <button type="button" class="cv-btn-tool" id="cvPrintBtn" title="Print Resume" aria-label="Print Resume">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            <span class="tool-label">Print</span>
+          </button>
+          <a href="Victor_Ejike_CV.pdf" target="_blank" rel="noopener" class="cv-btn-tool" title="Open PDF in new tab" aria-label="Open PDF in new tab">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+          <button type="button" class="cv-btn-tool cv-btn-close" id="closeCvModalBtn" title="Close (Esc)" aria-label="Close CV Modal">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Scrollable Interactive View -->
+      <div class="cv-scroll-view" id="cvScrollView">
+        <article class="cv-paper">
+          <!-- Document Header -->
+          <header class="cv-doc-header">
+            <h1 class="cv-doc-name">Victor Ejike</h1>
+            <p class="cv-doc-headline">AI Engineer | LLM Applications | Multi-Agent Systems &amp; RAG | Backend Engineering</p>
+            <div class="cv-doc-contact">
+              <span>Abuja, Nigeria</span>
+              <span>•</span>
+              <a href="mailto:victorejiki@gmail.com" style="color:#0f766e; text-decoration:none;">victorejiki@gmail.com</a>
+              <span>•</span>
+              <span>08062463468</span>
+            </div>
+            <div class="cv-doc-links">
+              <a href="https://linkedin.com/in/victor-ejike-00305b34b" target="_blank" rel="noopener">linkedin.com/in/victor-ejike-00305b34b</a>
+              <span>•</span>
+              <a href="https://github.com/victorejike" target="_blank" rel="noopener">github.com/victorejike</a>
+              <span>•</span>
+              <a href="https://victorejike.com" target="_blank" rel="noopener">victorejike.com</a>
+              <span>•</span>
+              <a href="https://ejicode.com" target="_blank" rel="noopener">ejicode.com</a>
+            </div>
+          </header>
+
+          <!-- Profile -->
+          <section class="cv-doc-section">
+            <h2 class="cv-section-title">Profile</h2>
+            <p class="cv-doc-p">
+              AI Engineer and Full-Stack Software Engineer with hands-on experience building autonomous multi-agent systems, retrieval-augmented generation (RAG) pipelines, and LLM-powered applications, alongside production backend engineering. Designed and built the Ejicode AI Business Development Platform — a multi-agent system using LangGraph orchestration, ChromaDB vector search, and locally-hosted LLMs (via Ollama) to autonomously discover opportunities, research companies, generate proposals, and manage outreach. Founder and Lead Engineer of Ejicode Limited, leading multidisciplinary engineering delivery across AI-powered applications, real-time systems, payment infrastructure, and logistics software for clients across the US, UK, UAE, Africa, and Europe. Strong engineering background in Python, Go, Rust, JavaScript/TypeScript, FastAPI, cloud platforms (AWS, Azure, GCP), Docker, Kubernetes, and database systems. Active contributor to the 01edu/Zone01 engineering curriculum and to developer programs including Google Developers, Apple Developer, NVIDIA Developer, and Meta for Developers.
+            </p>
+          </section>
+
+          <!-- Core Competencies -->
+          <section class="cv-doc-section">
+            <h2 class="cv-section-title">Core Competencies</h2>
+            <div class="cv-competencies-wrap">
+              AI Engineering &amp; LLM Integration • Multi-Agent Systems (LangGraph) • Retrieval-Augmented Generation (RAG) • Vector Databases (ChromaDB) • Embeddings • Prompt Engineering • RLHF Data Annotation • Model Quality Assurance • Local LLM Deployment (Ollama) • API Integration • Backend Engineering (FastAPI, async Python) • System Design • Cloud Computing (AWS, Azure, GCP) • Docker &amp; Kubernetes • CI/CD • Full-Stack Development • Network Security • Clean Architecture • Technical Leadership
+            </div>
+          </section>
+
+          <!-- Featured AI Project -->
+          <section class="cv-doc-section">
+            <h2 class="cv-section-title">Featured AI Project</h2>
+            <div class="cv-item">
+              <div class="cv-item-header">
+                <span class="cv-item-title">
+                  Ejicode AI Business Development Platform — Autonomous multi-agent system for business development
+                </span>
+                <span class="cv-item-date"><a href="https://github.com/victorejike/ejicodeai" target="_blank" rel="noopener">github.com/victorejike/ejicodeai</a></span>
+              </div>
+              <ul class="cv-bullet-list">
+                <li>Designed and built a pipeline of 10 specialized agents (Job Scout, Company Scout, Research, Ranking — 6-factor scoring, Contact Discovery, Knowledge Base, Proposal Generation, Outreach, Reply Monitoring, and a Supervisor orchestrator) using LangGraph for multi-agent coordination.</li>
+                <li>Implemented a RAG knowledge base using ChromaDB for vector search, with embeddings generated via nomic-embed-text, feeding context into LLM-generated proposals and research summaries.</li>
+                <li>Deployed locally-hosted open-source LLMs (DeepSeek-R1, Llama 2, Mistral, Qwen2.5-Coder) via Ollama for zero-inference-cost model serving.</li>
+                <li>Built an async FastAPI + Python 3.12 backend with JWT authentication, an 11-table SQLAlchemy ORM, Pydantic schemas, and Alembic migrations, backed by PostgreSQL and Redis/Celery for task queuing.</li>
+                <li>Built a Next.js 14 + TailwindCSS frontend and Prometheus/Grafana monitoring; wrote a pytest unit test suite covering core services.</li>
+                <li>Shipped Phase 1 (Foundation) and Phase 2 (Core Agents) to completion (~40% of full roadmap); Phases 3–5 (outreach pipeline, dashboard, production hardening) in progress.</li>
+                <li>Maintains full engineering documentation discipline: architecture blueprint, per-agent playbooks, implementation roadmap, and phase-by-phase completion/status reports.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Professional Experience -->
+          <section class="cv-doc-section">
+            <h2 class="cv-section-title">Professional Experience</h2>
+
+            <div class="cv-item">
+              <div class="cv-item-header">
+                <span class="cv-item-title">Founder &amp; Lead Engineer — Ejicode Limited</span>
+                <span class="cv-item-date">Present</span>
+              </div>
+              <ul class="cv-bullet-list">
+                <li>Founded and lead an ISO 27001-certified digital product studio, recognized as a Top Design &amp; Development Agency in Nigeria on Clutch, delivering AI engineering, backend, full-stack, and mobile development services to clients in the US, UK, UAE, and across Africa and Europe.</li>
+                <li>Deliver AI engineering services including LLM integration, prompt engineering, RLHF data annotation, and model quality assurance for client and internal products.</li>
+                <li>Direct a full-time, multidisciplinary engineering team, setting technical standards, delivery processes, and architecture decisions across concurrent client engagements.</li>
+                <li>Architect and ship production systems spanning AI-powered applications, real-time messaging platforms, payment infrastructure, and delivery-logistics software (see Selected Projects).</li>
+                <li>Own company brand, technical positioning, and go-to-market strategy: platform architecture, agency profile and pricing, governance documentation, and LinkedIn/social presence.</li>
+              </ul>
+            </div>
+
+            <div class="cv-item">
+              <div class="cv-item-header">
+                <span class="cv-item-title">AI Engineer &amp; Curriculum Contributor — 01edu / Zone01</span>
+                <span class="cv-item-date">Present</span>
+              </div>
+              <ul class="cv-bullet-list">
+                <li>Contribute to the 01edu/Zone01 project-based software engineering education ecosystem, building applied engineering and algorithmic problem-solving projects.</li>
+                <li>Designed and implemented render engines and full unit-test suites in Go, applying clean-architecture principles to systems-level coding challenges.</li>
+              </ul>
+            </div>
+
+            <div class="cv-item">
+              <div class="cv-item-header">
+                <span class="cv-item-title">Freelance AI Data Annotation &amp; RLHF Specialist — Independent</span>
+                <span class="cv-item-date"></span>
+              </div>
+              <ul class="cv-bullet-list">
+                <li>Performed RLHF data annotation, response ranking, and model output quality assurance on freelance AI data platforms, applying consistent evaluation rubrics to improve model behavior.</li>
+                <li>Built supporting infrastructure (proxy configuration and remote-access tooling) to reliably access and deliver on region-restricted annotation platforms.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Selected Projects -->
+          <section class="cv-doc-section">
+            <h2 class="cv-section-title">Selected Projects</h2>
+            <ul class="cv-bullet-list">
+              <li><strong>PostPulse</strong> — AI-powered content distribution app built on the Claude API; single-file deployment shipped via Netlify.</li>
+              <li><strong>ChatApp</strong> — Real-time messaging platform with secure WebSocket communication, built in Go for speed, reliability, and privacy.</li>
+              <li><strong>Payment Gateway API</strong> — Lightweight, secure payment integration service in Go with token-based authentication and full transaction tracking.</li>
+              <li><strong>EduCollab</strong> — School collaboration platform built in Go using Clean Architecture, PostgreSQL, Redis, and WebSockets for real-time features.</li>
+              <li><strong>Ejicode Website</strong> — v2.0 platform spec covering 28 service lines, an AI chat widget, and WhatsApp integration; stack includes Next.js, Three.js, GSAP, MongoDB, and PostgreSQL.</li>
+              <li><strong>FastPickup Delivery Services</strong> — Client project for an Abuja-based delivery company: React web app with live chat, admin dashboard, and rider mobile app screens.</li>
+              <li><strong>On2Code</strong> — Full-stack online coding-education platform (Coursera/CS50-style); delivered system design proposal, working HTML prototype, and full design handoff.</li>
+              <li><strong>Additional systems projects (01edu/Zone01 curriculum)</strong>: Firewall &amp; network security tooling for network-layer threat detection, QuadChecker (geometric pattern recognition), and Go ASCII art render engines with full unit test coverage.</li>
+            </ul>
+          </section>
+
+          <!-- Technical Skills -->
+          <section class="cv-doc-section">
+            <h2 class="cv-section-title">Technical Skills</h2>
+            <div class="cv-skills-category">
+              <strong>AI / ML:</strong> LLM integration, prompt engineering, multi-agent orchestration (LangGraph), RAG, vector databases (ChromaDB), embeddings (nomic-embed-text), local LLM deployment (Ollama: DeepSeek-R1, Llama 2, Mistral, Qwen2.5-Coder), RLHF data annotation, model quality assurance, Claude API
+            </div>
+            <div class="cv-skills-category">
+              <strong>Languages:</strong> Python, Go, Rust, JavaScript, TypeScript, Java, Swift, Kotlin
+            </div>
+            <div class="cv-skills-category">
+              <strong>Frontend &amp; Mobile:</strong> React, Vue, Next.js, Node.js, TailwindCSS, Flutter, Swift (iOS), Kotlin (Android)
+            </div>
+            <div class="cv-skills-category">
+              <strong>Backend &amp; Data:</strong> FastAPI (async Python), REST APIs, WebSockets, SQLAlchemy, Alembic, JWT auth, PostgreSQL, MongoDB, Redis, Celery, Clean Architecture, System Design
+            </div>
+            <div class="cv-skills-category">
+              <strong>Cloud &amp; DevOps:</strong> AWS, Azure, GCP, Docker, Docker Compose, Kubernetes, CI/CD pipelines, Prometheus, Grafana, Netlify
+            </div>
+            <div class="cv-skills-category">
+              <strong>Testing:</strong> pytest, unit testing, flake8, black
+            </div>
+            <div class="cv-skills-category">
+              <strong>Security:</strong> Network security, token-based authentication, secure system architecture
+            </div>
+            <div class="cv-skills-category">
+              <strong>Motion &amp; UI:</strong> Three.js, GSAP, Figma-equivalent design handoff
+            </div>
+          </section>
+
+          <!-- Developer Programs & Affiliations -->
+          <section class="cv-doc-section">
+            <h2 class="cv-section-title">Developer Programs &amp; Affiliations</h2>
+            <div class="cv-competencies-wrap">
+              01edu / Zone01 (Curriculum Contributor) • Google Developers • Apple Developer • NVIDIA Developer • Meta for Developers — active contributor across open-source, iOS/macOS, GPU computing &amp; AI acceleration, and platform developer programs.
+            </div>
+          </section>
+
+          <!-- Education -->
+          <section class="cv-doc-section">
+            <h2 class="cv-section-title">Education</h2>
+            <div class="cv-item-header">
+              <span class="cv-item-title"><strong>B.Sc. Computer Science</strong> — National Open University of Nigeria</span>
+              <span class="cv-item-date"><em>In Progress</em></span>
+            </div>
+          </section>
+
+          <!-- Leadership & Entrepreneurship -->
+          <section class="cv-doc-section" style="margin-bottom:0;">
+            <h2 class="cv-section-title">Leadership &amp; Entrepreneurship</h2>
+            <ul class="cv-bullet-list">
+              <li>Applicant, Youth Empowerment Forum 2.0 (entrepreneurship and pan-African impact narrative); active voice in the developer community on LinkedIn and X (@ejicode), sharing content on AI engineering, backend development, and software architecture.</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+
+      <!-- Fullscreen PDF View Container -->
+      <div class="cv-pdf-container" id="cvPdfContainer">
+        <iframe id="cvPdfFrame" class="cv-pdf-frame" src="" title="Victor Ejike Curriculum Vitae PDF"></iframe>
+      </div>
+    </div>
+  </div>
+
   <!-- Background 4K Smooth Scroll Canvas Engine -->
   <script>
     (function () {
@@ -2166,6 +3009,96 @@
 
       window.addEventListener('scroll', checkReveals, { passive: true });
       window.addEventListener('resize', checkReveals, { passive: true });
+
+      // ============================================================
+      // Fullscreen CV / Resume Modal Controller
+      // ============================================================
+      const cvModal = document.getElementById('cvModal');
+      const cvModalBackdrop = document.getElementById('cvModalBackdrop');
+      const closeCvModalBtn = document.getElementById('closeCvModalBtn');
+      const tabDocView = document.getElementById('tabDocView');
+      const tabPdfView = document.getElementById('tabPdfView');
+      const cvScrollView = document.getElementById('cvScrollView');
+      const cvPdfContainer = document.getElementById('cvPdfContainer');
+      const cvPdfFrame = document.getElementById('cvPdfFrame');
+      const cvPrintBtn = document.getElementById('cvPrintBtn');
+
+      function openCvModal() {
+        if (!cvModal) return;
+        cvModal.classList.add('is-open');
+        cvModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (typeof lenis !== 'undefined' && lenis) {
+          lenis.stop();
+        }
+      }
+
+      function closeCvModal() {
+        if (!cvModal) return;
+        cvModal.classList.remove('is-open');
+        cvModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (typeof lenis !== 'undefined' && lenis) {
+          lenis.start();
+        }
+      }
+
+      // Bind all CV triggers (hero button, nav link, action button, etc.)
+      const cvTriggers = document.querySelectorAll('.cv-trigger, #heroCvBtn, #navCvLink, #actionCvBtn');
+      cvTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openCvModal();
+        });
+      });
+
+      if (closeCvModalBtn) {
+        closeCvModalBtn.addEventListener('click', closeCvModal);
+      }
+      if (cvModalBackdrop) {
+        cvModalBackdrop.addEventListener('click', closeCvModal);
+      }
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && cvModal && cvModal.classList.contains('is-open')) {
+          closeCvModal();
+        }
+      });
+
+      // Tab switcher
+      if (tabDocView && tabPdfView && cvScrollView && cvPdfContainer && cvPdfFrame) {
+        tabDocView.addEventListener('click', () => {
+          tabDocView.classList.add('active');
+          tabPdfView.classList.remove('active');
+          tabDocView.setAttribute('aria-selected', 'true');
+          tabPdfView.setAttribute('aria-selected', 'false');
+          cvScrollView.style.display = 'flex';
+          cvPdfContainer.classList.remove('active');
+        });
+
+        tabPdfView.addEventListener('click', () => {
+          tabPdfView.classList.add('active');
+          tabDocView.classList.remove('active');
+          tabPdfView.setAttribute('aria-selected', 'true');
+          tabDocView.setAttribute('aria-selected', 'false');
+          cvScrollView.style.display = 'none';
+          cvPdfContainer.classList.add('active');
+          if (!cvPdfFrame.getAttribute('src')) {
+            cvPdfFrame.setAttribute('src', 'Victor_Ejike_CV.pdf');
+          }
+        });
+      }
+
+      // Print action
+      if (cvPrintBtn) {
+        cvPrintBtn.addEventListener('click', () => {
+          if (cvPdfContainer && cvPdfContainer.classList.contains('active')) {
+            if (tabDocView) tabDocView.click();
+            setTimeout(() => window.print(), 150);
+          } else {
+            window.print();
+          }
+        });
+      }
     })();
   </script>
 </body>
